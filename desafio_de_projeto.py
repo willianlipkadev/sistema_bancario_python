@@ -1,13 +1,14 @@
 ##Criar um istema bancario com as operações: sacar,depositar e visualizar extrato.
 
 MENU = """
+############# MENU #############
 
-[1] Depositar
-[2] Sacar
-[3] Extrato
-[0] Sair
+        [1] Depositar
+        [2] Sacar
+        [3] Extrato
+        [0] Sair
 
-=> """
+    Opção escoolhida: """
 
 saldo = 0
 limite = 500
@@ -17,20 +18,21 @@ LIMITE_SAQUES = 3
 
 while True:
 
-    opcao = input(menu)
+    opcao = input(MENU)
 
-    if opcao == "d":
-        valor = float(input("Informe o valor do depósito: "))
+    if opcao == "1":
+        valor = float(input("Informe o valor do depósito:R$ "))
 
         if valor > 0:
             saldo += valor
             extrato += f"Depósito: R$ {valor:.2f}\n"
+            print("\nDepósito efetuado com Sucesso!")
 
         else:
             print("Operação falhou! O valor informado é inválido.")
 
-    elif opcao == "s":
-        valor = float(input("Informe o valor do saque: "))
+    elif opcao == "2":
+        valor = float(input("Informe o valor do saque:R$ "))
 
         excedeu_saldo = valor > saldo
 
@@ -51,18 +53,19 @@ while True:
             saldo -= valor
             extrato += f"Saque: R$ {valor:.2f}\n"
             numero_saques += 1
+            print("\nSaque efetuado com Sucesso!")
 
         else:
             print("Operação falhou! O valor informado é inválido.")
 
-    elif opcao == "e":
+    elif opcao == "3":
         print("\n================ EXTRATO ================")
-        print("Não foram realizadas movimentações." if not extrato else extrato)
+        print("Não foram realizadas movimentações até o momento." if not extrato else extrato)
         print(f"\nSaldo: R$ {saldo:.2f}")
         print("==========================================")
 
-    elif opcao == "q":
+    elif opcao == "0":
         break
 
     else:
-        print("Operação inválida, por favor selecione novamente a operação desejada.")
+        print("\nOperação inválida, por favor selecione novamente a operação desejada!")

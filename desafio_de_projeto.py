@@ -65,6 +65,7 @@ while True:
         print("==========================================")
 
     elif opcao == "0":
+        print("\nObrigado por utilzar esse mini sistema bancário!")
         break
 
     else:
